@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignUpView.swift
 //  FirebaseAuth-Test
 //
 //  Created by Diego Antonio García Padilla on 06/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct SignUpView: View {
     
     // Variables
     @State private var email: String = ""
@@ -21,7 +21,7 @@ struct LoginView: View {
         VStack (alignment: .center) {
             
             // Title
-            Text("Movies")
+            Text("Sign Up")
                 .font(.title)
             
             // Email
@@ -71,11 +71,11 @@ struct LoginView: View {
                 ).padding()
             }
             
-            // Login button
+            // Sign Up button
             Button {
                 //
             } label: {
-                Text("Login")
+                Text("Sign Up")
                     .frame(maxWidth: .infinity)
                     .padding()
                     .overlay(
@@ -84,12 +84,12 @@ struct LoginView: View {
                     ).padding()
             }
             
-            // Sign Up button
+            // Login button
 
             Button {
                 //
             } label: {
-                Text("Don't have an account? Sign Up")
+                Text("Already have an account? Sign in")
                     .font(.caption)
             }
             
@@ -99,5 +99,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    SignUpView()
 }
