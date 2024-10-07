@@ -12,6 +12,9 @@ struct LoginView: View {
     // View Model
     @StateObject var viewModel = LoginViewModel()
     
+    // Used by the coordinator to manage the flow
+    let goTab: () -> Void
+    
     var body: some View {
         
         VStack (alignment: .center) {
@@ -70,6 +73,7 @@ struct LoginView: View {
             // Login button
             Button {
                 viewModel.setCurrentUser()
+                goTab()
             } label: {
                 Text("Login")
                     .frame(maxWidth: .infinity)
@@ -100,6 +104,10 @@ struct LoginView: View {
     }
 }
 
-#Preview {
-    LoginView()
+struct LoginView_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginView {
+            ()
+        }
+    }
 }

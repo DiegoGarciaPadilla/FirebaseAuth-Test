@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MoviesTabView: View {
+    
+    // Used by the coordinator to manage the flow
+    let goRoot: () -> Void
+    
     var body: some View {
         TabView {
             MoviesListView().tabItem {
@@ -20,6 +24,10 @@ struct MoviesTabView: View {
     }
 }
 
-#Preview {
-    MoviesTabView()
+struct MoviesTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MoviesTabView {
+            ()
+        }
+    }
 }

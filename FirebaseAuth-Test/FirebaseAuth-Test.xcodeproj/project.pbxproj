@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BE521492CB314D30015B91B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE521482CB314D30015B91B /* Alamofire */; };
+		7BE5224A2CB3A5360015B91B /* FlowStacks in Frameworks */ = {isa = PBXBuildFile; productRef = 7BE522492CB3A5360015B91B /* FlowStacks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BE521492CB314D30015B91B /* Alamofire in Frameworks */,
+				7BE5224A2CB3A5360015B91B /* FlowStacks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +120,7 @@
 			name = "FirebaseAuth-Test";
 			packageProductDependencies = (
 				7BE521482CB314D30015B91B /* Alamofire */,
+				7BE522492CB3A5360015B91B /* FlowStacks */,
 			);
 			productName = "FirebaseAuth-Test";
 			productReference = 7BE521022CB30A2B0015B91B /* FirebaseAuth-Test.app */;
@@ -203,6 +206,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				7BE521472CB314D30015B91B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7BE522482CB3A5360015B91B /* XCRemoteSwiftPackageReference "FlowStacks" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7BE521032CB30A2B0015B91B /* Products */;
@@ -571,6 +575,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		7BE522482CB3A5360015B91B /* XCRemoteSwiftPackageReference "FlowStacks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnpatrickmorgan/FlowStacks";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +590,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7BE521472CB314D30015B91B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		7BE522492CB3A5360015B91B /* FlowStacks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7BE522482CB3A5360015B91B /* XCRemoteSwiftPackageReference "FlowStacks" */;
+			productName = FlowStacks;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
