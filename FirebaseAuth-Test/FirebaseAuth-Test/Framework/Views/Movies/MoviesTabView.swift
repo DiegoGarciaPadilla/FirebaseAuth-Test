@@ -16,9 +16,11 @@ struct MoviesTabView: View {
         TabView {
             MoviesListView().tabItem {
                 Image(systemName: "film")
+                Text("Movies")
             }
             Text("Perfil").tabItem {
                 Image(systemName: "person.circle")
+                Text("Profile")
             }
         }
     }
