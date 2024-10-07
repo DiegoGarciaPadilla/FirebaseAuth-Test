@@ -13,11 +13,9 @@ struct MoviesListView: View {
     @ObservedObject var moviesListViewModel = MoviesListViewModel()
     
     var body: some View {
-        
         VStack {
             Text("Movies List")
-        }
-  
+            
                 .font(.title)
                 .padding()
             
@@ -29,9 +27,10 @@ struct MoviesListView: View {
                 }
             }.onAppear {
                 Task {
-                    let _ = try await moviesListViewModel.getFavoriteMovies()
+                    let _ = await moviesListViewModel.getFavoriteMovies()
                 }
             }
+        }
     }
 }
 
