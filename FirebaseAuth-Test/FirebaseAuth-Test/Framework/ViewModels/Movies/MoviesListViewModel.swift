@@ -19,8 +19,8 @@ class MoviesListViewModel: ObservableObject {
     // Arreglo de peliculas
     @Published var movies: [Movie] = []
     
+    @MainActor
     func getFavoriteMovies() async {
-        
         do {
             let response = try await repository.getFavoriteMovies()
             movies = response.results

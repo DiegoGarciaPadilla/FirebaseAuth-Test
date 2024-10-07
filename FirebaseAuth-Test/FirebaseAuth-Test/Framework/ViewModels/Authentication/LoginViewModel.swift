@@ -35,4 +35,9 @@ class LoginViewModel: ObservableObject {
         }
     }
     
+    @MainActor
+    func getCurrentUser() {
+        self.email = self.userRequirement.getCurrentUser() ?? ""
+    }
+    
 }

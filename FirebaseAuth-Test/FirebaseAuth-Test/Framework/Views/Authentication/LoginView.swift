@@ -99,6 +99,11 @@ struct LoginView: View {
                     .font(.caption)
             }
             
+        }.onAppear {
+            viewModel.getCurrentUser()
+            if viewModel.email != "" {
+                goTab()
+            }
         }
         
     }
