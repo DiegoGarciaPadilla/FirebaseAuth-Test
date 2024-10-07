@@ -18,7 +18,7 @@ struct MoviesTabView: View {
                 Image(systemName: "film")
                 Text("Movies")
             }
-            Text("Perfil").tabItem {
+            ProfileView(goRoot: goRoot).tabItem {
                 Image(systemName: "person.circle")
                 Text("Profile")
             }
