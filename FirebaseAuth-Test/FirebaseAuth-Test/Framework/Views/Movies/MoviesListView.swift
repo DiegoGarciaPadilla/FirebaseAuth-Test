@@ -13,21 +13,34 @@ struct MoviesListView: View {
     @ObservedObject var moviesListViewModel = MoviesListViewModel()
     
     var body: some View {
-        VStack {
-            Text("Movies List")
-            
-                .font(.title)
-                .padding()
-            
-            List {
-                ForEach(moviesListViewModel.movies) { movie in
-                    Text(movie.original_title)
-                        .font(.headline)
-                        .padding()
-                }
-            }.onAppear {
-                Task {
-                    let _ = await moviesListViewModel.getFavoriteMovies()
+        NavigationView {
+            VStack {
+                Text("Movies List")
+                    .font(.title)
+                    .padding()
+                
+                List(moviesListViewModel.movies) { movie in
+                    NavigationLink {
+                        VStack {
+                            Text(movie.original_title)
+                                .font(.title)
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                            
+                            Text(movie.overview)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                            
+                            Spacer()
+                        }
+                    } label: {
+                        Text(movie.original_title)
+                    }
+                }.onAppear {
+                    Task {
+                        let _ = await moviesListViewModel.getFavoriteMovies()
+                    }
                 }
             }
         }
