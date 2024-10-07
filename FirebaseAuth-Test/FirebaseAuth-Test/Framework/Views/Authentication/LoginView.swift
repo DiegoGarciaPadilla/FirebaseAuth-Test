@@ -9,12 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
-    // Variables
-    @State private var email: String = ""
-    @State private var password: String = ""
-    
-    // View password
-    @State private var seePassword: Bool = false
+    // View Model
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         
@@ -25,7 +21,7 @@ struct LoginView: View {
                 .font(.title)
             
             // Email
-            TextField("Email", text: $email)
+            TextField("Email", text: $viewModel.email)
                 .padding()
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
@@ -35,16 +31,16 @@ struct LoginView: View {
                 ).padding()
             
             // Password
-            if seePassword {
+            if viewModel.seePassword {
                 HStack {
-                    SecureField("Password", text: $password)
+                    SecureField("Password", text: $viewModel.password)
                         .padding()
                         .autocapitalization(.none)
                     
                     Button(action: {
-                        seePassword.toggle()
+                        viewModel.seePassword.toggle()
                     }) {
-                        Image (systemName: !seePassword ? "eye.slash.fill" : "eye.fill")
+                        Image (systemName: !viewModel.seePassword ? "eye.slash.fill" : "eye.fill")
                             .padding()
                             .foregroundColor(.gray)
                     }
@@ -54,14 +50,14 @@ struct LoginView: View {
                 ).padding()
             } else {
                 HStack {
-                    TextField("Password", text: $password)
+                    TextField("Password", text: $viewModel.password)
                         .padding()
                         .autocapitalization(.none)
                     
                     Button(action: {
-                        seePassword.toggle()
+                        viewModel.seePassword.toggle()
                     }) {
-                        Image(systemName: !seePassword ? "eye.slash.fill" : "eye.fill")
+                        Image(systemName: !viewModel.seePassword ? "eye.slash.fill" : "eye.fill")
                             .padding()
                             .foregroundColor(.gray)
                     }
@@ -73,7 +69,7 @@ struct LoginView: View {
             
             // Login button
             Button {
-                //
+                viewModel.setCurrentUser()
             } label: {
                 Text("Login")
                     .frame(maxWidth: .infinity)
@@ -82,6 +78,12 @@ struct LoginView: View {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(style: StrokeStyle(lineWidth: 0.1, lineCap: .round))
                     ).padding()
+                    .alert(isPresented: $viewModel.showAlert) {
+                                Alert(
+                                    title: Text("Oops!"),
+                                    message: Text(viewModel.messageAlert)
+                                )
+                            }
             }
             
             // Sign Up button
